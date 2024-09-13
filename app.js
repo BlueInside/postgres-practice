@@ -1,18 +1,20 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const controller = require('./controllers/user');
+const path = require('node:path');
 
-app.get('/', (req, res) => {
-    console.log('usernames will be logged here - wip')
-})
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
-app.get('/new', (req, res) => {
-    console.log('usernames will be logged here - wip')
-})
+app.use(express.urlencoded())
 
-app.post('/new', (req, res) => {
-    console.log('username to be saved: ', req.body.username)
-})
+app.get('/', controller.getUsernames)
+
+app.get('/new', controller.createUsernameGet)
+
+app.post('/new', controller.createUsernamePost)
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
