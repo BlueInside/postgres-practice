@@ -15,6 +15,8 @@ app.get('/new', controller.createUsernameGet)
 
 app.post('/new', controller.createUsernamePost)
 
+app.get('/delete', controller.deleteUsernames)
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
