@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title= 'Form'
+  body
+    h1="add user"
+
+    form(action="/new" method='POST')
+        label(for="username") username: 
+        input( id="username" type="text" name="username") 
+        button(type="submit") submit
